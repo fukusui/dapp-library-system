@@ -1,0 +1,8 @@
+<div *ngFor="let author of authors">
+	<p> Saved Authors: {{ author.first_name  }}
+	<span *ngIf="author.middle_name">{{ author.middle_name }} </span>
+	<span *ngIf="author.last_name">{{ author.last_name }} </span>
+	<button class="btn btn-warning"
+		(click)="replace(author)">Replace</button>
+	</p>
+</div>

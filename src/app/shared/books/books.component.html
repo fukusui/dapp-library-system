@@ -1,0 +1,11 @@
+<div *ngFor="let book of books">
+  <div (click)="selectBook(book)">
+    <p>{{ book.title }},
+      <span *ngFor="let author of book.authorName">
+        <span *ngIf="author.first_name"> {{ author.first_name }}</span>
+        <span *ngIf="author.middle_name"> {{ author.middle_name }}</span>
+        <span *ngIf="author.last_name"> {{ author.last_name }} </span>
+      </span>
+      <span class="spacing"><button class="btn btn-success">Select</button></span>
+    </p>
+</div>

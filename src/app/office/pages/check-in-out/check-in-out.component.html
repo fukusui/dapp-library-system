@@ -1,0 +1,26 @@
+<search-users (usersEvent)="getUsers($event)"></search-users>
+
+<div class="text-center buff-top" *ngIf="users">
+  <users [users]="users" class="buff-top-sm"
+    (userEvent)="getUser($event)"></users>
+</div>
+
+<div class="text-center buff-top" *ngIf="user">
+  <user *ngIf="user" [user]="user" class="buff-top-sm"
+    (returnEvent)="returnBook($event)"></user>
+</div>
+
+<search-title *ngIf="user"
+	(addBookEvent)="getBooks($event)"></search-title>
+
+<div class="buff-top-sm text-center" *ngIf="books">
+  <books [books]="books"
+    (bookEvent)="bookEvent($event)"></books>
+</div>
+
+<div class="text-center buff-top-sm">
+  <book *ngIf="bookData" [bookData]="bookData"
+    (instanceEvent)="selectInstance($event)"></book>
+</div>
+
+<return-button></return-button>

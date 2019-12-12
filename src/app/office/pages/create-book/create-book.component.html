@@ -1,0 +1,30 @@
+<div class="alert alert-success" *ngIf="alertMessage">
+	<strong>Success!</strong> {{ bookNumber }} books have been created.
+</div>
+
+<search-title
+	(addBookEvent)="getBooks($event)"></search-title>
+
+<div class="text-center">
+  <div class="buff-top">
+    <books *ngIf="books" [books]="books"
+      (bookEvent)="bookEvent($event)"></books>
+  </div>
+
+  <book *ngIf="bookData" [bookData]="bookData"></book>
+</div>
+
+<div class="buff-top-mini" *ngIf="bookData">
+  <form [formGroup]="instanceForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="quantity">
+        Number of Books:
+      </label>
+      <input class="form-control" type="number"
+        formControlName="quantity" required>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!instanceForm.valid">Enter</button>
+  </form>
+</div>
+
+<return-button></return-button>

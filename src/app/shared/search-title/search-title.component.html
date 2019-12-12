@@ -1,0 +1,12 @@
+<form [formGroup]="titleForm"
+  (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">
+      Book Title:
+    </label>
+    <input class="form-control" type="text"
+			formControlName="title" required>
+  </div>
+	<button class="btn btn-primary" type="submit"
+		[disabled]="!titleForm.valid">Enter</button>
+</form>

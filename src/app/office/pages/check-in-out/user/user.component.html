@@ -1,0 +1,14 @@
+<p class="font-weight-bolder">{{ user.name.first }} {{ user.name.last }} {{ user.email }} </p>
+
+<div class="buff-top-sm" *ngIf="user.books">
+  <div *ngFor="let book of user.books">
+  <p>
+    <span class="font-weight-bold">Book Title:</span>
+      {{ book.book.title }}
+    <span class="font-weight-bold">Due Date: </span>
+    <span [style.color]="isRed(book.instance.due_date) ? 'red' : 'green'"> {{ book.instance.due_date | date }} </span>
+    <span><button class="btn btn-warning"
+        (click)="returnBook(book)">Return</button>
+    </span>
+ </p>
+</div>

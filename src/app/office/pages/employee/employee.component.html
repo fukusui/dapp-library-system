@@ -1,0 +1,30 @@
+<div *ngFor="let employee of employees">
+  <p>
+		{{ employee.name.first }} {{ employee.name.last }}
+
+		<span class="spacing" *ngIf="employee.auth == 0">
+			<button class="btn btn-success"
+			(click)="registerEmp(employee)">Register</button>
+		</span>
+
+		<span class="spacing" *ngIf="employee.auth == 2">
+			<button class="btn btn-primary">Admin</button>
+		</span>
+
+		<span class="spacing" *ngIf="employee.auth == 1">
+			<button class="btn btn-warning">Employee</button>
+		</span>
+
+		<span class="spacing" *ngIf="employee.auth == 1"
+			(click)="addAdmin(employee)">
+			<button class="btn btn-success">Upgrade</button>
+		</span>
+
+		<span class="spacing" *ngIf="employee.auth >= 1">
+			<button class="btn btn-danger"
+				(click)="deleteEmp(employee)">Delete</button>
+		</span>
+  </p>
+</div>
+
+<return-button></return-button>

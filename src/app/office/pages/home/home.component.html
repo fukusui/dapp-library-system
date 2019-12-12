@@ -1,0 +1,10 @@
+<div class="buff-top-lg">
+  <div class="jumbotron">
+    <div class="row text-center">
+      <a class="col box bg-primary text-white"
+        *ngFor="let link of officeLinks" routerLink="{{ link.url }}">
+        <h3>{{ link.name  }}</h3>
+      </a>
+    </div>
+  </div>
+</div>

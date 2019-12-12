@@ -1,0 +1,49 @@
+<h5>{{ bookData.title }}</h5>
+
+<div *ngIf="bookData.authorName" class="buff-top-sm">
+  <div *ngFor="let author of bookData.authorName">
+    <p>{{ author.first_name  }}
+    <span *ngIf="author.middle_name">{{ author.middle_name }} </span>
+    <span *ngIf="author.last_name">{{ author.last_name }}</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="bookData.isbn" class="buff-top-sm">
+  <p>ISBN: {{ bookData.isbn }}</p>
+</div>
+
+<div *ngIf="bookData.genreName" class="buff-top-sm">
+  <p *ngFor="let genre of bookData.genreName">
+    Genre: {{ genre.name }}</p>
+</div>
+
+<img *ngIf="bookData.img" class="buff-top-sm" src="{{bookData.img}}">
+
+<div *ngIf="bookData.instances" class="buff-top-sm">
+  <div *ngFor="let instance of bookData.instances; let i = index">
+
+    <div *ngIf="instance.availability === 'available' ||
+      instance.availability === 'lent'">
+      <p> {{ i + 1 }}:
+        <span class="spacing font-weight-bold text-primary"
+          *ngIf="instance.availability === 'available'">
+          {{ instance.availability }}
+        </span>
+        <span class="spacing font-weight-bold text-danger"
+          *ngIf="instance.availability === 'lent'">
+            {{ instance.availability }}
+        </span>
+
+        <span class="spacing">ID {{ instance._id }}</span>
+
+        <span class="spacing" *ngIf="bookData.checkout &&
+          instance.availability === 'available'">
+          <button class="btn btn-info"
+          (click)="instanceSelect(instance)">Lend</button>
+        </span>
+
+      </p>
+    </div>
+  </div>
+</div>

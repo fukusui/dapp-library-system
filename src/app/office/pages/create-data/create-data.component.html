@@ -1,0 +1,13 @@
+<div class="alert alert-success" *ngIf="alertMessage">
+	<strong>Success!</strong> A new book data has been created.
+</div>
+
+<search-data
+  (dataEvent)="dataEvent($event)">
+</search-data>
+
+<book-data *ngIf="bookData" class="text-center"
+  [bookData]="bookData" (alertEvent)="alertEvent()">
+</book-data>
+
+<return-button></return-button>

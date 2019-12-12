@@ -1,0 +1,10 @@
+<form (submit)="searchGenre()" *ngIf="genres">
+  <div class="form-group">
+    <label for="genre">Genre: </label>
+    <select [(ngModel)]="genre" name="genre">
+      <option [value]="genre._id" *ngFor="let genre of genres">
+        {{ genre.name }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Enter</button>
+</form>

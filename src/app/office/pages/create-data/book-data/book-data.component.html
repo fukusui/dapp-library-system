@@ -1,0 +1,41 @@
+<div *ngIf="book && book.isbn" class="buff-top">
+  <h5>Title: {{ book.title }}</h5>
+
+  <div *ngIf="book.authors" class="buff-top-sm">
+    <div *ngFor="let author of book.authors buff-top-mini">
+      <p> Author: {{ author.first_name  }}
+      <span *ngIf="author.middle_name">{{ author.middle_name }} </span>
+      <span *ngIf="author.last_name">{{ author.last_name }} </span>
+      <span *ngIf="author._id" class="text-success"> Replaced !</span>
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="book.genres buff-top-sm">
+    <p *ngFor="let genre of book.genres">Genre: {{ genre }}</p>
+  </div>
+
+  <div class="buff-top-sm">
+    <p>ISBN: {{ book.isbn }}</p>
+  </div>
+
+  <div class="buff-top-sm">
+    <img *ngIf="book.img" src="{{book.img}}">
+  </div>
+
+  <div class="buff-top-sm" *ngIf="authors.length>0 && !book.saved">
+    <check-author [authors]="authors"></check-author>
+  </div>
+
+  <div *ngIf="!book.saved; else elseBlock" class="buff-top-sm">
+    <button class="btn btn-primary" (click)="saveBook()">Save Book</button>
+  </div>
+
+  <ng-template #elseBlock>
+    <p class="text-danger font-weight-bold buff-top-sm">The Book Data Exists</p>
+  </ng-template>
+</div>
+
+<div *ngIf="book && !book.isbn">
+  <p class="buff-top-mini font-weight-bold text-danger">The searched book doesn't contain an ISBN</p>
+</div>

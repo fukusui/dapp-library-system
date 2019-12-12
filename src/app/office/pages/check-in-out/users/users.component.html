@@ -1,0 +1,5 @@
+<div *ngFor="let user of users" (click)=selectUser(user)>
+  <p>{{ user.name.first }} {{ user.name.last }} {{ user.email }}
+    <span> <button class="btn btn-success">Select</button></span>
+  </p>
+</div>
