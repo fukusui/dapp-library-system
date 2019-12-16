@@ -91,8 +91,24 @@ $ ng build --prod
 $ node app.js
 ```
 
+## Testing
+
+### Testing solidity contract
+
+Replace the word privekey with actual privatekey related to ethereum account. Also the first privatekey variable must be related to the admin publickey presented in the .env file.
+
+```
+$ ganache-cli --account="privateKey, 1000000000000000000000000000000000000000" "privateKey, 1000000000000000000000000000000000000000" "privateKey, 1000000000000000000000000000000000000000"
+```
+
+Open a new shell window and enter the command below.
+
+```
+$ truffle test
+```
+
 ## Available Routes
 
-Home Page `/`
-Office Page `/office`
-Admin Page `/admin`
+- Home Page `/`
+- Office Page `/office`
+- Admin Page `/admin`

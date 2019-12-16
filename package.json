@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "api-test": "NODE_ENV=test mocha test/api",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
