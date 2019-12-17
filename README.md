@@ -107,6 +107,16 @@ Open a new shell window and enter the command below.
 $ truffle test
 ```
 
+### Testing API/Server
+
+```
+$ sudo mongod
+```
+
+```
+$ npm test
+```
+
 ## Available Routes
 
 - Home Page `/`
